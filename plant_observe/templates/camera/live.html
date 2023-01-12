@@ -1,0 +1,10 @@
+﻿<img style="-webkit-user-select: none;" src="{% url 'stream' %}">
+
+
+
+<form action="{% url 'capture' %}" method='post'>
+  {% csrf_token %}
+  <button type="submit">Snap Shot</button>
+</form>
+
+

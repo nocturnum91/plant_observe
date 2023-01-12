@@ -1,0 +1,22 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% translate "Signup" %}{% endblock %}
+
+{% block inner %}
+<h1>게시판</h1>
+
+  <table>
+    <button><a href="/board/create/">글쓰기</a></button>
+    <br>
+    data: {{ data }}
+    {% for post in data %}
+      <ul>
+        <li><a href="{{ post.pk }}">{{post.title}}</a></li>
+      </ul>
+    {% endfor %}
+  </table>
+
+{% endblock %}

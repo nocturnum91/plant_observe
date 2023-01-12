@@ -1,0 +1,22 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% translate "Signup" %}{% endblock %}
+
+{% block inner %}
+<h1>글쓰기</h1>
+<form action="." method="post" enctype="multipart/form-data">
+<input type="hidden" name="action" value="{% if post %}update{% else %}create{% endif %}">
+    {% csrf_token %}
+    제목<br>
+    <input type="text" name="title" value="{{ post.title }}"><br>
+    내용<br>
+    <textarea rows="10" cols="50" name="contents">{{ post.contents }}</textarea><br>
+    <input type="file" name="mainphoto" multiple><br>
+    <input type="submit" value="글쓰기">
+</form>
+
+{% endblock %}
+

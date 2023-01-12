@@ -1,0 +1,20 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% translate "Signup" %}{% endblock %}
+
+{% block inner %}
+<h1>게시글</h1>
+ <p>{{data.title}}</p>
+        <p>{{data.contents}}</p>
+        <!-- 이미지 보여주기 -->
+        {% if post.mainphoto %}
+            <img src = "{{ data.mainphoto.url }}" alt="" height="600">
+            <br>
+        {% endif %}
+        <br>
+        <a href="/board/{{data.pk}}/remove">삭제</a>
+        <a href="/board/">목록</a>
+{% endblock %}
